@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Verification System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="announce-bar">🚀 New Announcement: Certificate Verification System is now live for Companies & Organizations!</div>
+
+<nav class="navbar">
+  <div class="nav-logo">
+    <div class="logo-icon">
+      <div class="q1"></div><div class="q2"></div>
+      <div class="q3"></div><div class="q4"></div>
+      <div class="cdot"></div>
+    </div>
+    <div class="logo-text">
+      <span class="lm">m</span><span class="la">a</span><span class="lt">t</span>
+      <span class="ln">n</span><span class="li">i</span><span class="lte">te</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <button class="nav-link">Product ∨</button>
+    <button class="nav-link">Company ∨</button>
+  </div>
+  <div><button class="btn-nav" onclick="showPage('login')">Sign In →</button></div>
+</nav>
+
+<!-- HERO PAGE -->
+<div class="page active" id="page-hero">
+  <div class="hero">
+    <div class="hero-badge">India's Trusted Certificate Verification Platform</div>
+    <h1>Verify • Register • Authenticate<br>Your Certificates Instantly</h1>
+    <p>A powerful and secure platform for organizations to issue and verify certificates. Fast, reliable, and built for modern institutions.</p>
+    <div class="hero-btns">
+      <button class="btn-ph" onclick="showPage('register')">Get Started →</button>
+      <button class="btn-sh" onclick="showPage('login')">Sign In</button>
+    </div>
+    <div class="hero-trust">Trusted by 500+ Organizations &bull; Secure Verification &bull; AI Powered</div>
+  </div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div class="page" id="page-register">
+  <div class="hero small">
+    <div class="hero-badge">Create Account</div>
+    <h2>Register to Verify Your Certificate</h2>
+  </div>
+  <div class="steps">
+    <div class="sw-wrap"><div class="step active">1</div><div class="slbl active">Register</div></div>
+    <div class="sline"></div>
+    <div class="sw-wrap"><div class="step">2</div><div class="slbl">Login</div></div>
+    <div class="sline"></div>
+    <div class="sw-wrap"><div class="step">3</div><div class="slbl">Dashboard</div></div>
+  </div>
+  <div class="form-wrap">
+    <div class="card">
+      <div class="ok" id="reg-ok">✅ Registration successful! Redirecting to login...</div>
+      <div class="section-label">Personal Information</div>
+      <div class="row2">
+        <div class="field"><label>First Name *</label><input type="text" id="r-fname" placeholder="First Name"></div>
+        <div class="field"><label>Last Name *</label><input type="text" id="r-lname" placeholder="Last Name"></div>
+      </div>
+      <div class="field"><label>Email Address *</label><input type="email" id="r-email" placeholder="Email Address"></div>
+      <div class="row2">
+        <div class="field"><label>Date of Birth *</label><input type="date" id="r-dob"></div>
+        <div class="field"><label>Mobile Number</label><input type="tel" id="r-phone" placeholder="9559XXXXXX"></div>
+      </div>
+      <div class="divider"></div>
+      <div class="section-label">Certificate Details</div>
+      <div class="field">
+        <label>Certificate Number *</label>
+        <input type="text" id="r-certno" placeholder="CERT-2026-001">
+        <p class="hint">Valid: CERT-2026-001 / CERT-2026-042 / CERT-2025-118</p>
+      </div>
+      <div class="divider"></div>
+      <div class="section-label">Account Security</div>
+      <div class="row2">
+        <div class="field"><label>Password *</label><input type="password" id="r-pass" placeholder="Min. 6 characters"></div>
+        <div class="field"><label>Confirm Password *</label><input type="password" id="r-cpass" placeholder="Repeat password"></div>
+      </div>
+      <div class="err" id="reg-err"></div>
+      <button class="btn-sub" onclick="doRegister()">Create Account</button>
+      <button class="btn-out" onclick="showPage('hero')">← Back to Home</button>
+      <p class="sw">Already have an account? <a onclick="showPage('login')">Sign in</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN PAGE -->
+<div class="page" id="page-login">
+  <div class="hero small">
+    <div class="hero-badge">Welcome Back</div>
+    <h2>Sign in to Your Account</h2>
+  </div>
+  <div class="steps">
+    <div class="sw-wrap"><div class="step done">✓</div><div class="slbl">Register</div></div>
+    <div class="sline"></div>
+    <div class="sw-wrap"><div class="step active">2</div><div class="slbl active">Login</div></div>
+    <div class="sline"></div>
+    <div class="sw-wrap"><div class="step">3</div><div class="slbl">Dashboard</div></div>
+  </div>
+  <div class="form-wrap">
+    <div class="card">
+      <div class="field"><label>Email Address *</label><input type="email" id="l-email" placeholder="Email Address"></div>
+      <div class="field"><label>Password *</label><input type="password" id="l-pass" placeholder="Enter your password"></div>
+      <div class="err" id="login-err"></div>
+      <button class="btn-sub" onclick="doLogin()">Sign In</button>
+      <button class="btn-out" onclick="showPage('register')">← Back to Register</button>
+      <p class="sw">Don't have an account? <a onclick="showPage('register')">Register now</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD PAGE -->
+<div class="page" id="page-dashboard">
+  <div class="form-wrap" style="max-width:560px;padding-top:28px;">
+    <div class="dash-top">
+      <h3>My Dashboard</h3>
+      <button class="btn-lo" onclick="doLogout()">Logout</button>
+    </div>
+    <div class="steps">
+      <div class="sw-wrap"><div class="step done">✓</div><div class="slbl">Register</div></div>
+      <div class="sline"></div>
+      <div class="sw-wrap"><div class="step done">✓</div><div class="slbl">Login</div></div>
+      <div class="sline"></div>
+      <div class="sw-wrap"><div class="step active">3</div><div class="slbl active">Dashboard</div></div>
+    </div>
+    <div class="pcard">
+      <div class="ptop">
+        <div class="avatar" id="d-av">FL</div>
+        <div>
+          <div class="pname" id="d-name">user name</div>
+          <div class="pid" id="d-cno">CERT-2026-001</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="section-label">Personal Details</div>
+      <div class="igrid">
+        <div class="iitem"><label>Email</label><span id="d-email">—</span></div>
+        <div class="iitem"><label>Date of Birth</label><span id="d-dob">—</span></div>
+        <div class="iitem"><label>Mobile</label><span id="d-phone">—</span></div>
+        <div class="iitem"><label>Member Since</label><span id="d-joined">—</span></div>
+      </div>
+    </div>
+    <div class="ccard">
+      <div class="cch">
+        <div class="cct" id="d-ctitle">Certificate Details</div>
+        <span class="badge">✓ Valid</span>
+      </div>
+      <div class="cmeta">
+        <div class="cmi">Certificate No: <span id="d-cid">—</span></div>
+        <div class="cmi">Issued On: <span id="d-cissue">—</span></div>
+        <div class="cmi">Issued By: <span>Matnite Pvt. Ltd.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
